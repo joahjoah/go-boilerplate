@@ -12,7 +12,7 @@ import (
 var db *sql.DB
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s every day!", r.URL.Path[1:])
+	fmt.Fprintf(w, "Hi there, I love testing %s every day!", r.URL.Path[1:])
 }
 
 func main() {
@@ -21,8 +21,11 @@ func main() {
 		User:   "goair",
 		Passwd: "goair",
 		Net:    "tcp",
-		Addr:   "host.docker.internal:3306",
+		Addr:   "db:3306",
 		DBName: "goair",
+		Params: map[string]string{
+			"allowNativePasswords": "true",
+		},
 	}
 	// Get a database handle.
 	var err error
