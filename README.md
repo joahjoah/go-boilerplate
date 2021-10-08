@@ -5,3 +5,5 @@ Local MySQL + Go development boilerplate with  and live reload with [Air](https:
 ```bash
 docker-compose up
 ```
+
+Air live reload does not work with Docker for Windows..
